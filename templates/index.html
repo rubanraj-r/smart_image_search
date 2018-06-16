@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Image Search</title>
+    </head>
+    <body>
+        <form method="POST" enctype="multipart/form-data" action="http://127.0.0.1:5002/predict">
+            <div>
+                <label for="file">Choose file to upload</label>
+                <input id="filechooser" type="file" name="image" accept="image/*">
+            </div>
+            <div>
+                <button onclick="uploadFile()">Submit</button>
+            </div>
+        </form>
+        <!-- <script>
+            function uploadFile() {
+                console.log('Clicked -- >')
+                var blobFile = $('#filechooser').files[0];
+                var formData = new FormData();
+                formData.append("fileToUpload", blobFile);
+
+                $.ajax({
+                url: "127.0.0.1:5002/predict",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    console.log(response)
+                },
+                error: function(jqXHR, textStatus, errorMessage) {
+                    console.log(errorMessage); // Optional
+                }
+                });
+            }
+        </script> -->
+    </body>
+</html>
