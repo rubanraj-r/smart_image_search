@@ -28,19 +28,16 @@ def prepare_image(image, target):
 
 @app.route('/predict', methods=["GET", "POST"])
 def prediction():
-    print('inside rpute')
     if request.method == 'POST':
-        print('inside post')
         if request.files.get("image"):
             print('got the image - > ', request.files)
             # read the image in PIL format
             image = request.files["image"].read()
             image = Image.open(io.BytesIO(image))
-            print('images - > ', image)
             
             # preprocess the image and prepare it for classification
             alt_image = prepare_image(image, target=(64, 64))
-            print('-- > ', alt_image)
+            
             # classify the input image and then initialize the list
 			# of predictions to return to the client
             global graph
